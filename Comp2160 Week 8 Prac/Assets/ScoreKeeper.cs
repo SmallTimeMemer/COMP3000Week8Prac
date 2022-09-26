@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    private int score;
+    private int score = 0;
     static private ScoreKeeper instance;
     static public ScoreKeeper Instance
     {
@@ -17,7 +17,23 @@ public class ScoreKeeper : MonoBehaviour
             return instance;
         }
     }
+    void Awake()
+    {
+        if(instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
+    void Start()
+    {
+        UIManager.Instance.UpdateScoreText(score);
+    }
     public void UpdateScore(int s)
     {
         score += s;
