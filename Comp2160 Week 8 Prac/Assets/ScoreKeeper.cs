@@ -21,5 +21,6 @@ public class ScoreKeeper : MonoBehaviour
     public void UpdateScore(int s)
     {
         score += s;
+        UIManager.Instance.UpdateScoreText(score);
     }
 }
