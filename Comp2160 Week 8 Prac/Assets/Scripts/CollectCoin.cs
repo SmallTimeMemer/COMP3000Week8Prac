@@ -6,6 +6,7 @@ public class CollectCoin : MonoBehaviour
 {
     //private GameManager myGameManager;
     // Start is called before the first frame update
+    [SerializeField] private int playerNum;
     void Start()
     {
         //myGameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -25,7 +26,7 @@ public class CollectCoin : MonoBehaviour
             //myGameManager.AddToScore(c.getValue());
             other.gameObject.SetActive(false);
 
-            ScoreKeeper.Instance.UpdateScore(c.getValue());
+            ScoreKeeper.Instance.UpdateScore(playerNum, c.getValue());
         }
 
     }

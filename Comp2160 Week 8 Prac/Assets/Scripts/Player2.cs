@@ -27,9 +27,5 @@ public class Player2: MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 5);
         }
-
-
     }
-
-     
 }

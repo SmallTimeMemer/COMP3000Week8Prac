@@ -5,7 +5,8 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI p1ScoreText;
+    [SerializeField] private TextMeshProUGUI p2ScoreText;
     static private UIManager instance;
     static public UIManager Instance
     {
@@ -37,8 +38,15 @@ public class UIManager : MonoBehaviour
         
     }
 
-    public void UpdateScoreText(int score)
+    public void UpdateScoreText(int player, int score)
     {
-        scoreText.text = "Score: " + score;
+        if (player == 1)
+        {
+            p1ScoreText.text = "P1 Score: " + score;
+        } else
+        {
+            p2ScoreText.text = "P2 Score: " + score;
+        }
+        
     }
 }

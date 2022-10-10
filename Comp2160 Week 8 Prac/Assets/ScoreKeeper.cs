@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    private int score = 0;
+    private int p1Score = 0;
+    private int p2Score = 0;
     static private ScoreKeeper instance;
     static public ScoreKeeper Instance
     {
@@ -32,11 +33,20 @@ public class ScoreKeeper : MonoBehaviour
 
     void Start()
     {
-        UIManager.Instance.UpdateScoreText(score);
+        UIManager.Instance.UpdateScoreText(1, p1Score);
+        UIManager.Instance.UpdateScoreText(2, p2Score);
     }
-    public void UpdateScore(int s)
+    public void UpdateScore(int p, int s)
     {
-        score += s;
-        UIManager.Instance.UpdateScoreText(score);
+        if(p == 1)
+        {
+            p1Score += s;
+            UIManager.Instance.UpdateScoreText(1, p1Score);
+        } else
+        {
+            p2Score += s;
+            UIManager.Instance.UpdateScoreText(2, p2Score);
+        }
+        
     }
 }
